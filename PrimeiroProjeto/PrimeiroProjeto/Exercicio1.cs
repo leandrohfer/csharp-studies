@@ -3,7 +3,7 @@ using System.Globalization;
 
 namespace PrimeiroProjeto
 {
-    class Exercício1
+    class Exercicio1
     {
         static void Teste2(String[] args)
         {

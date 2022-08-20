@@ -5,7 +5,7 @@ namespace PrimeiroProjeto
 {
     class CastingConversion
     {
-        static void Main(String[] args)
+        static void Teste3(String[] args)
         {
             double x;
             float y;
