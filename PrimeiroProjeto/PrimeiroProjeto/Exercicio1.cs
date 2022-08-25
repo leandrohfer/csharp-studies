@@ -5,7 +5,7 @@ namespace PrimeiroProjeto
 {
     class Exercicio1
     {
-        static void Teste2(String[] args)
+        static void Teste5(String[] args)
         {
             string produto1 = "Computador";
             string produto2 = "Mesa de escritório";

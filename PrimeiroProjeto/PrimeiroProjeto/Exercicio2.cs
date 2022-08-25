@@ -5,7 +5,7 @@ namespace PrimeiroProjeto
 {
     class Exercicio2
     {
-        static void Main(String[] args)
+        static void Teste6(String[] args)
         {
             Console.Write("Entre com o seu nome completo: ");
             string nome = Console.ReadLine();
