@@ -3,48 +3,66 @@ using System.Globalization;
 
 namespace Orientacao_a_Objetos
 {
-    class Pessoa
+    class Triangulo
     {
-        private string nome;
-        private int idade;
-        private double salario;
-        static double somaSalario = 0;
-        static int contadorPessoas = 0;
+        private double largura;
+        private double altura;
 
-
-        public Pessoa(string nome, int idade, double salario)
+        public Triangulo (double largura, double altura)
         {
-            this.nome = nome;
-            this.idade = idade;
-            this.salario = salario;
-
-            Pessoa.somaSalario += salario;
-            Pessoa.contadorPessoas++;
+            this.largura = largura;
+            this.altura = altura;
         }
 
-        public static double retornaMediaSalarial()
+        public double Area()
         {
-            double media = Pessoa.somaSalario / Pessoa.contadorPessoas;
-            return media;
+            double area = largura * altura;
+            return area;
+        }
+        public double Perimetro()
+        {
+            double perimetro = 2 * (largura + altura);
+            return perimetro;
+        }
+        public double Diagonal()
+        {
+            double diagonal = Math.Sqrt(largura * largura + altura * altura);
+            return diagonal;
+        }
+    }
+
+    class Funcionario
+    {
+        private string Nome;
+        private double SalarioBruto;
+        private double Imposto;
+
+        public Funcionario(string nome, double salarioBruto, double imposto)
+        {
+            Nome = nome;
+            SalarioBruto = salarioBruto;
+            Imposto = imposto;
         }
 
-        public string retornaMaisVelho(Pessoa pessoa)
+        public double SalarioLiquido()
         {
-            if (this.idade >= pessoa.idade)
-            {
-                return nome;
-            }
-            return pessoa.nome;
+            double Liquido = this.SalarioBruto - this.Imposto;
+            return Liquido;
+        }
+
+        public void AumentarSalario(double porcentagem)
+        {
+            double NovoSalario = this.SalarioBruto + (this.SalarioBruto * (porcentagem/100.0));
+            this.SalarioBruto = NovoSalario;
         }
 
         public override string ToString()
         {
-            return
-                nome +
-                " tem " +
-                idade +
-                " anos de idade e recebe R$"
-                + salario.ToString("F2", CultureInfo.InvariantCulture);
+            return 
+                "Funcionário: "
+                + Nome +
+                ", $ "
+                + SalarioLiquido().ToString("F2", CultureInfo.InvariantCulture);
         }
     }
 
@@ -52,31 +70,49 @@ namespace Orientacao_a_Objetos
     {
         static void Main(String[] args)
         {
-            Console.WriteLine("Dados da primeira pessoa:");
-            Console.Write("Nome: ");
-            String nome1 = Console.ReadLine();
-            Console.Write("Idade: ");
-            int idade1 = int.Parse(Console.ReadLine());
-            Console.Write("Salário: ");
-            double salario1 = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+            int exercicio = 2;
 
-            Pessoa pessoa1 = new Pessoa(nome1, idade1, salario1);
+            if (exercicio == 1)
+            {
+                // Para o exercício 1 foi utilizado a classe Triângulo
+                Console.WriteLine("Entre com a altura e a largura do triângulo:");
+                double altura = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+                double largura = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
 
-            Console.WriteLine("Dados da segunda pessoa:");
-            Console.Write("Nome: ");
-            String nome2 = Console.ReadLine();
-            Console.Write("Idade: ");
-            int idade2 = int.Parse(Console.ReadLine());
-            Console.Write("Salário: ");
-            double salario2 = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+                Triangulo triangulo = new Triangulo(altura, largura);
 
-            Pessoa pessoa2 = new Pessoa(nome2, idade2, salario2);
+                Console.WriteLine("AREA = " + triangulo.Area().ToString("F2", CultureInfo.InvariantCulture));
+                Console.WriteLine("PERÍMETRO = " + triangulo.Perimetro().ToString("F2", CultureInfo.InvariantCulture));
+                Console.WriteLine("DIAGONAL = " + triangulo.Diagonal().ToString("F2", CultureInfo.InvariantCulture));
+            }
+            else if (exercicio == 2)
+            {
+                // Para o exercício 2 foi utilizado a classe Funcionario
+                Console.Write("Nome: ");
+                string nome = Console.ReadLine();
+                Console.Write("Salário Bruto: ");
+                double salario = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+                Console.Write("Imposto: ");
+                double imposto = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
 
-            Console.WriteLine("Pessoa mais velha: " + pessoa1.retornaMaisVelho(pessoa2));
-            Console.WriteLine("Salário Médio das Pessoas: " + Pessoa.retornaMediaSalarial());
+                Funcionario funcionario = new Funcionario(nome, salario, imposto);
+                Console.WriteLine(funcionario);
 
-            Console.WriteLine(pessoa1);
-            Console.WriteLine(pessoa2);
+                Console.Write("\nDigite a porcentagem para aumentar o salário: ");
+                funcionario.AumentarSalario(double.Parse(Console.ReadLine()));
+
+                Console.WriteLine("\n"+funcionario);
+            }
+            else if (exercicio == 3)
+            {
+
+            }
+            else
+            {
+                Console.WriteLine("Error!");
+            }
         }
+
+        
     }
 }
