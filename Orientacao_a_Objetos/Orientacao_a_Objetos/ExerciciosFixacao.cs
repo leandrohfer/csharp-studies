@@ -68,7 +68,7 @@ namespace Orientacao_a_Objetos
 
     class ExerciciosFixacao
     {
-        static void Main(String[] args)
+        static void Exercicios2(String[] args)
         {
             int exercicio = 2;
 
@@ -102,10 +102,6 @@ namespace Orientacao_a_Objetos
                 funcionario.AumentarSalario(double.Parse(Console.ReadLine()));
 
                 Console.WriteLine("\n"+funcionario);
-            }
-            else if (exercicio == 3)
-            {
-
             }
             else
             {
