@@ -12,7 +12,7 @@ namespace Orientacao_a_Objetos
     }
     internal class ExercicioFixacaoVetores
     {
-        static void Main(String[] args)
+        static void Teste(String[] args)
         {
             Console.Write("Quantos quartos serão alugados: ");
             int n = int.Parse(Console.ReadLine());
