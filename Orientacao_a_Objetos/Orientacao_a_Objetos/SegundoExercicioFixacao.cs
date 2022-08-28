@@ -43,7 +43,7 @@ namespace Orientacao_a_Objetos
     }
     internal class SegundoExercicioFixacao
     {
-        static void Main(string[] args)
+        static void Teste(string[] args)
         {
             Conta conta;
 
