@@ -4,56 +4,29 @@ using System.Globalization;
 namespace Orientacao_a_Objetos
 {
     class Conta {
-        public int Numero { get; }
+        public int Numero { get; private set; }
         public string Nome { get; private set; }
         public double Saldo { get; private set; }
 
         
-        public Conta ()
+        public Conta (int numero, string nome)
         {
-            Console.WriteLine("### CRIAÇÃO DE NOVA CONTA BANCÁRIA ###");
-
-            Console.Write("Digite o número da conta: ");
-            Numero = int.Parse(Console.ReadLine());
-
-            Console.Write("Digite o nome e sobrenome do titular da conta: ");
-            Nome = Console.ReadLine();
-
-            Console.Write("Haverá dépósito inicial (s/n)? ");
-            string answer = Console.ReadLine();
-
-            while (answer != "s" && answer != "n")
-            {
-                Console.WriteLine("Você digitou uma resposta inválida, tente novamente!");
-
-                Console.Write("Haverá dépósito inicial (s/n)? ");
-                answer = Console.ReadLine();
-            }
-
-            if (answer == "s")
-            {
-                Console.Write("Digite o valor do depósito inicial: ");
-                Saldo = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
-            }
-            else if (answer == "n")
-            {
-                Saldo = 0.0;
-            }
+            Numero = numero;
+            Nome = nome;
         }
 
-        public void DepositarValor()
+        public Conta (int numero, string nome, double saldo) : this(numero, nome)
         {
-            Console.Write("\nEntre com um valor para depósito: ");
-            double valor = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+            DepositarValor(saldo);
+        }   
 
+        public void DepositarValor(double valor)
+        {
             Saldo += valor;
         }
 
-        public void SacarValor()
+        public void SacarValor(double valor)
         {
-            Console.Write("\nEntre com um valor para saque: ");
-            double valor = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
-
             Saldo -= (valor + 5) ;
         }
 
@@ -72,17 +45,53 @@ namespace Orientacao_a_Objetos
     {
         static void Main(string[] args)
         {
-            Conta conta = new Conta();
+            Conta conta;
+
+            Console.WriteLine("### CRIAÇÃO DE NOVA CONTA BANCÁRIA ###");
+            Console.Write("Digite o número da conta: ");
+            int numero = int.Parse(Console.ReadLine());
+
+            Console.Write("Digite o nome e sobrenome do titular da conta: ");
+            string nome = Console.ReadLine();
+
+            Console.Write("Haverá dépósito inicial (s/n)? ");
+            string resp = Console.ReadLine();
+
+
+            while (resp != "s" && resp != "n")
+            {
+                Console.WriteLine("\nVocê digitou uma resposta inválida, tente novamente!");
+
+                Console.Write("Haverá dépósito inicial (s/n)? ");
+                resp = Console.ReadLine();
+            }
+
+
+            if (resp == "s")
+            {
+                Console.Write("Digite o valor do depósito inicial: ");
+                double depositoInicial = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+
+                conta = new Conta(numero, nome, depositoInicial);
+            }
+            else 
+            {
+                conta = new Conta(numero, nome);
+            }
 
             Console.WriteLine("\nDados da conta: ");
             Console.WriteLine(conta);
 
-            conta.DepositarValor();
+            Console.Write("\nEntre com um valor para depósito: ");
+            double valor = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+            conta.DepositarValor(valor);
 
             Console.WriteLine("\nDados da conta atualizados: ");
             Console.WriteLine(conta);
 
-            conta.SacarValor();
+            Console.Write("\nEntre com um valor para saque: ");
+            valor = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+            conta.SacarValor(valor);
 
             Console.WriteLine("\nDados da conta atualizados: ");
             Console.WriteLine(conta);
