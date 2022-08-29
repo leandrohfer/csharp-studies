@@ -5,7 +5,7 @@ namespace Orientacao_a_Objetos
 {
     internal class OperacoesComListas
     {
-        static void Main(String[] args)
+        static void Teste(String[] args)
         {
             /*
              * Forma de se declarar e instanciar uma lista definindo o tipo dela.
