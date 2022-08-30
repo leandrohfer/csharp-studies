@@ -24,7 +24,7 @@ namespace Orientacao_a_Objetos
     }
     internal class ExercicioFixacaoListas
     {
-        static void Main(String[] args)
+        static void Teste(String[] args)
         {
             Console.Write("Quantos empregados serão registrados: ");
             int n = int.Parse(Console.ReadLine());
