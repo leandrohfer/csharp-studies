@@ -45,7 +45,7 @@ namespace TopicosEspeciaisEmCSharp
              * índice ou a partir de um intervalo.
              * 
              * Os exemplos abaixo primeiro recortam a string inteira a partir do índice 3
-             * e posteriormente recortame a string inteira a partir do índice 3 em um 
+             * e posteriormente recortam a string inteira a partir do índice 3 em um 
              * intervalo de 5 caracteres.
              */
             string s4 = original.Substring(3);

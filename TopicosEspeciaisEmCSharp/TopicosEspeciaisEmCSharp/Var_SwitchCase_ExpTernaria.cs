@@ -3,7 +3,7 @@
     static void Teste(string[] args)
     {
         /*
-         * Existe inferência de tipos de C#, utilizando
+         * Existe inferência de tipos em C#, utilizando
          * "var" o tipo de variável será definido após
          * a inicialização da mesma.
          */

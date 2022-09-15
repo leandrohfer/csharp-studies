@@ -56,7 +56,7 @@ namespace TopicosEspeciaisEmCSharp
              * tanto o Kind deste DateTime quanto o próprio valor dele.
              * 
              * Por exemplo, a instanciação abaixo está salvando na variável d5 a data
-             * 15/08/2000 10:05:58 com Kind Local. A data está noo padrão UTC mas ela
+             * 15/08/2000 10:05:58 com Kind Local. A data está no padrão UTC mas ela
              * é instanciada com kind local.
              * 
              * Utilizando os padrões do computador/servidor que está sendo executado

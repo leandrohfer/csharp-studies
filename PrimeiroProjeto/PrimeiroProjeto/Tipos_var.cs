@@ -34,7 +34,7 @@ namespace Primeiro
             string nome = "Leandro Henrique";
 
             /*
-             * O tipo Objetct por sua vez é um tipo genérico
+             * O tipo Object por sua vez é um tipo genérico
              * de dado, isto é, ele aceita todos os outros
              * tipos.
              * 
