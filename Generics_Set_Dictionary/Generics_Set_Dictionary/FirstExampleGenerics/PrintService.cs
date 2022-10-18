@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Generics_Set_Dictionary
+namespace Generics_Set_Dictionary.FirstExampleGenerics
 {
     // Exemplo de uso do Generic
     class PrintService<T>
