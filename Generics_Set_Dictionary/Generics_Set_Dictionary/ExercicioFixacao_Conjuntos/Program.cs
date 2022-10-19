@@ -8,7 +8,7 @@ namespace Generics_Set_Dictionary.ExercicioFixacao_Conjuntos
     {
         static void Main(string[] args)
         {
-            HashSet<LogRecord> set = new HashSet<LogRecord>();
+            HashSet<string> set = new HashSet<string>();
 
             Console.Write("Enter file full path: ");
             string path = Console.ReadLine();
@@ -25,7 +25,7 @@ namespace Generics_Set_Dictionary.ExercicioFixacao_Conjuntos
                         name = line[0];
                         instant = DateTime.Parse(line[1]);
 
-                        set.Add(new LogRecord { Username = name, Instant = instant });
+                        set.Add(name);
                     }
 
                     Console.WriteLine("Total users: " + set.Count);
