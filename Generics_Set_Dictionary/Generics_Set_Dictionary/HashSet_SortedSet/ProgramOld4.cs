@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 namespace Generics_Set_Dictionary.HashSet_SortedSet
 {
-    internal class Program
+    internal class ProgramOld4
     {
-        static void Main(string[] args)
+        static void teste4(string[] args)
         {
             SortedSet<int> a = new SortedSet<int>() { 0, 2, 4, 6, 8, 10 };
             SortedSet<int> b = new SortedSet<int>() { 5, 6, 7, 8, 9, 10 };
