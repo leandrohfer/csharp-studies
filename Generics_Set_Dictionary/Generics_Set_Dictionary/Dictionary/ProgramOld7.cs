@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Generics_Set_Dictionary.Dictionary
 {
-    internal class Program
+    internal class ProgramOld7
     {
-        static void Main(string[] args)
+        static void Teste7(string[] args)
         {
             Dictionary<string, string> cookies = new Dictionary<string, string>();
 
