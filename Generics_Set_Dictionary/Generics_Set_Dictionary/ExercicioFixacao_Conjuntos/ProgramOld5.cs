@@ -4,9 +4,9 @@ using System.Collections.Generic;
 
 namespace Generics_Set_Dictionary.ExercicioFixacao_Conjuntos
 {
-    internal class Program
+    internal class ProgramOld5
     {
-        static void Main(string[] args)
+        static void Teste5(string[] args)
         {
             HashSet<string> set = new HashSet<string>();
 
