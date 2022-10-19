@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace Generics_Set_Dictionary.RestricoesGenerics
 {
-    class Program
+    class ProgramOld2
     {
-        static void Main(string[] args)
+        static void Teste1(string[] args)
         {
 
             List<Product> list = new List<Product>();
