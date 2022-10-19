@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Generics_Set_Dictionary.ExercicioProposto_Conjuntos
 {
-    internal class Program
+    internal class ProgramOld6
     {
-        static void Main(string[] args)
+        static void Teste6(string[] args)
         {
             HashSet<int> set = new HashSet<int>();
 
