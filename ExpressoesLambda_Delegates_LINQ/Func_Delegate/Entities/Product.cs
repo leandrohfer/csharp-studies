@@ -4,12 +4,12 @@ using System.Globalization;
 
 namespace ExpressoesLambda_Delegates_LINQ.Action_Delegate.Entities
 {
-    internal class Product
+    internal class ProductOld4
     {
         public string Name { get; set; }
         public double Price { get; set; }
 
-        public Product (string name, double price)
+        public ProductOld4 (string name, double price)
         {
             Name = name;
             Price = price;

@@ -9,24 +9,24 @@ namespace ExpressoesLambda_Delegates_LINQ.Action_Delegate
 {
     internal class ProgramOld3
     {
-        private static void Main(string[] args)
+        private static void Teste3(string[] args)
         {
             /*
              * O delegate action pertence ao namespace System, ele
              * representa um método void que zero ou mais argumentos
              */
-            List<Product> list = new List<Product>();
+            List<ProductOld3> list = new List<ProductOld3>();
 
-            list.Add(new Product("Tv", 900.00));
-            list.Add(new Product("Mouse", 50.00));
-            list.Add(new Product("Tablet", 350.50));
-            list.Add(new Product("HD Case", 80.90));
+            list.Add(new ProductOld3("Tv", 900.00));
+            list.Add(new ProductOld3("Mouse", 50.00));
+            list.Add(new ProductOld3("Tablet", 350.50));
+            list.Add(new ProductOld3("HD Case", 80.90));
 
             /*
              * As chaves servem para indicar que essa função lambda é
              * uma ação e não irá retornar nada
              */
-            Action<Product> act = p => { p.Price += p.Price * 0.1; };
+            Action<ProductOld3> act = p => { p.Price += p.Price * 0.1; };
             //Action<Product> act = UpdatePrice;
 
 
@@ -34,13 +34,13 @@ namespace ExpressoesLambda_Delegates_LINQ.Action_Delegate
             //list.ForEach(act);
             list.ForEach(p => { p.Price += p.Price * 0.1; });
 
-            foreach (Product item in list)
+            foreach (ProductOld3 item in list)
             {
                 Console.WriteLine(item);
             }
         }
 
-        static void UpdatePrice (Product p)
+        static void UpdatePrice (ProductOld3 p)
         {
             p.Price += p.Price * 0.1;
         }
