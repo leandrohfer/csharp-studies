@@ -5,14 +5,14 @@ namespace ExpressoesLambda_Delegates_LINQ.Predicate_Delegate
 {
     internal class ProgramOld2
     {
-        private static void Main(string[] args)
+        private static void Teste2(string[] args)
         {
-            List<Product> list = new List<Product>();
+            List<ProductOld> list = new List<ProductOld>();
 
-            list.Add(new Product("Tv", 900.00));
-            list.Add(new Product("Mouse", 50.00));
-            list.Add(new Product("Tablet", 350.50));
-            list.Add(new Product("HD Case", 80.90));
+            list.Add(new ProductOld("Tv", 900.00));
+            list.Add(new ProductOld("Mouse", 50.00));
+            list.Add(new ProductOld("Tablet", 350.50));
+            list.Add(new ProductOld("HD Case", 80.90));
 
             /*
              * O Predicate é um Delegate, isto é, uma referência
@@ -22,8 +22,14 @@ namespace ExpressoesLambda_Delegates_LINQ.Predicate_Delegate
              * qualquer função que obedecer a forma do predicate
              * será aceita, seja ela declarada ou anonima (lambda)
              */
-            list.RemoveAll(ProductTest);
-            foreach (Product product in list)
+            Predicate<ProductOld> pr = p => p.Price >= 100.00 ;
+            //Predicate<ProductOld> pr = ProductTest;
+
+            //list.RemoveAll(pr);
+            //list.RemoveAll(ProductTest);
+            list.RemoveAll(p => p.Price >= 100.00);
+
+            foreach (ProductOld product in list)
             {
                 Console.WriteLine(product);
             }
@@ -33,7 +39,7 @@ namespace ExpressoesLambda_Delegates_LINQ.Predicate_Delegate
          * Função que recebe um objeto do tipo T e retorna um 
          * valor booleano
          */
-        public static bool ProductTest (Product p)
+        public static bool ProductTest (ProductOld p)
         {
             return p.Price >= 100.00;
         }
