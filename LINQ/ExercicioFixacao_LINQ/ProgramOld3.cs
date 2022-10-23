@@ -11,7 +11,7 @@ namespace LINQ.ExercicioFixacao_LINQ
 {
     internal class ProgramOld3
     {
-        static void Main(String[] args)
+        static void Teste(String[] args)
         {
             Console.Write("Enter full file path: ");
             string path = Console.ReadLine();
