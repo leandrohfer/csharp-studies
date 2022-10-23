@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace LINQ.LINQ_Lambda.Entities
 {
-    internal class Product
+    internal class ProductOld
     {
         public int Id { get; set; }
         public string Name { get; set; }
         public double Price { get; set; }
-        public Category Category { get; set; }
+        public CategoryOld CategoryId { get; set; }
 
         public override string ToString()
         {
@@ -22,9 +22,9 @@ namespace LINQ.LINQ_Lambda.Entities
                 ", " + 
                 Price.ToString("F2", CultureInfo.InvariantCulture) + 
                 ", " +
-                Category.Name +
+                CategoryId.Name +
                 ", " +
-                Category.Tier;
+                CategoryId.Tier;
         }
     }
 }

@@ -18,42 +18,42 @@ namespace LINQ.LINQ_Lambda
             }
             Console.WriteLine();
         }
-        static void Main(String[] args)
+        static void Teste2(String[] args)
         {
-            Category c1 = new Category() { Id = 1, Name = "Tools", Tier = 2 };
-            Category c2 = new Category() { Id = 2, Name = "Computers", Tier = 1 };
-            Category c3 = new Category() { Id = 3, Name = "Electronics", Tier = 1 };
-            Category c4 = new Category() { Id = 4, Name = "Category Test", Tier = 1 };
+            CategoryOld c1 = new CategoryOld() { Id = 1, Name = "Tools", Tier = 2 };
+            CategoryOld c2 = new CategoryOld() { Id = 2, Name = "Computers", Tier = 1 };
+            CategoryOld c3 = new CategoryOld() { Id = 3, Name = "Electronics", Tier = 1 };
+            CategoryOld c4 = new CategoryOld() { Id = 4, Name = "Category Test", Tier = 1 };
 
-            List<Product> products = new List<Product>() {
-                new Product() { Id = 1, Name = "Computer", Price = 1100.0, Category = c2 },
-                new Product() { Id = 2, Name = "Hammer", Price = 90.0, Category = c1 },
-                new Product() { Id = 3, Name = "TV", Price = 1700.0, Category = c3 },
-                new Product() { Id = 4, Name = "Notebook", Price = 1300.0, Category = c2 },
-                new Product() { Id = 5, Name = "Saw", Price = 80.0, Category = c1 },
-                new Product() { Id = 6, Name = "Tablet", Price = 700.0, Category = c2 },
-                new Product() { Id = 7, Name = "Camera", Price = 700.0, Category = c3 },
-                new Product() { Id = 8, Name = "Printer", Price = 350.0, Category = c3 },
-                new Product() { Id = 9, Name = "MacBook", Price = 1800.0, Category = c2 },
-                new Product() { Id = 10, Name = "Sound Bar", Price = 700.0, Category = c3 },
-                new Product() { Id = 11, Name = "Level", Price = 70.0, Category = c1 },
-                new Product() { Id = 12, Name = "Test Product", Price = 300.0, Category = c4 }
+            List<ProductOld> products = new List<ProductOld>() {
+                new ProductOld() { Id = 1, Name = "Computer", Price = 1100.0, CategoryId = c2 },
+                new ProductOld() { Id = 2, Name = "Hammer", Price = 90.0, CategoryId = c1 },
+                new ProductOld() { Id = 3, Name = "TV", Price = 1700.0, CategoryId = c3 },
+                new ProductOld() { Id = 4, Name = "Notebook", Price = 1300.0, CategoryId = c2 },
+                new ProductOld() { Id = 5, Name = "Saw", Price = 80.0, CategoryId = c1 },
+                new ProductOld() { Id = 6, Name = "Tablet", Price = 700.0, CategoryId = c2 },
+                new ProductOld() { Id = 7, Name = "Camera", Price = 700.0, CategoryId = c3 },
+                new ProductOld() { Id = 8, Name = "Printer", Price = 350.0, CategoryId = c3 },
+                new ProductOld() { Id = 9, Name = "MacBook", Price = 1800.0, CategoryId = c2 },
+                new ProductOld() { Id = 10, Name = "Sound Bar", Price = 700.0, CategoryId = c3 },
+                new ProductOld() { Id = 11, Name = "Level", Price = 70.0, CategoryId = c1 },
+                new ProductOld() { Id = 12, Name = "Test Product", Price = 300.0, CategoryId = c4 }
             };
 
             /* Criação uma nova lista filtrada da lista principal */
-            var r1 = products.Where(p => p.Category.Tier == 1 && p.Price < 900.0);
+            var r1 = products.Where(p => p.CategoryId.Tier == 1 && p.Price < 900.0);
             Print("TIER 1 AND PRICE < 900:", r1);
 
             /* Criação de uma nova lista filtrada da lista principal retornando apenas o atributo Name do objeto */
-            var r2 = products.Where(p => p.Category.Name == "Tools").Select(p => p.Name);
+            var r2 = products.Where(p => p.CategoryId.Name == "Tools").Select(p => p.Name);
             Print("NAMES OF PRODUCTS FROM TOOLS", r2);
 
             /* Forma de retornar apenas 3 atributos do objeto Product por meio de um objeto anônimo */
-            var r3 = products.Where(p => p.Name[0] == 'C').Select(p => new { p.Name, p.Price, CategoryName = p.Category.Name });
+            var r3 = products.Where(p => p.Name[0] == 'C').Select(p => new { p.Name, p.Price, CategoryName = p.CategoryId.Name });
             Print("NAMES STARTED WITH 'C' AND ANONYMOUS OBJECT", r3);
 
             /* Ordenando a consulta primeiramente pelo preço e segundamente pelo nome */
-            var r4 = products.Where(p => p.Category.Tier == 1).OrderBy(p => p.Price).ThenBy(p => p.Name);
+            var r4 = products.Where(p => p.CategoryId.Tier == 1).OrderBy(p => p.Price).ThenBy(p => p.Name);
             Print("TIER 1 ORDER BY PRICE THEN BY NAME", r4);
 
             /*
@@ -97,11 +97,11 @@ namespace LINQ.LINQ_Lambda
             Console.WriteLine("Min price: " + r11);
 
             /* Retorna a soma do parâmetro inserido na função */
-            var r12 = products.Where(p => p.Category.Id == 1).Sum(p => p.Price);
+            var r12 = products.Where(p => p.CategoryId.Id == 1).Sum(p => p.Price);
             Console.WriteLine("Category 1 Sum prices: " + r12);
 
             /* Retorna a média de valores a partir do parâmetro inserido na função */
-            var r13 = products.Where(p => p.Category.Id == 1).Average(p => p.Price);
+            var r13 = products.Where(p => p.CategoryId.Id == 1).Average(p => p.Price);
             Console.WriteLine("Category 1 Average prices: " + r13);
 
             /*
@@ -111,7 +111,7 @@ namespace LINQ.LINQ_Lambda
              * é responsável por tratar a nulidade da lista, portanto se a lista for nula, o DefaultifEmpty retornará
              * zero e o Average não irá ativar a exceção
              */
-            var r14 = products.Where(p => p.Category.Id == 5).Select(p => p.Price).DefaultIfEmpty(0.0).Average();
+            var r14 = products.Where(p => p.CategoryId.Id == 5).Select(p => p.Price).DefaultIfEmpty(0.0).Average();
             Console.WriteLine("Category 5 Average prices: " + r14);
 
             /*
@@ -119,7 +119,7 @@ namespace LINQ.LINQ_Lambda
              * consulta específica, ele recebe uma Func personalizada, o caso abaixo recebe dois objetos de tipo T
              * e realiza a soma deles de forma similar a função Sum
              */
-            var r15 = products.Where(p => p.Category.Id == 1).Select(p => p.Price).Aggregate(0.0, (x, y) => x + y);
+            var r15 = products.Where(p => p.CategoryId.Id == 1).Select(p => p.Price).Aggregate(0.0, (x, y) => x + y);
 
             /*
              * O exemplo abaixo é a função Aggregate sem o parâmetro default. Caso a lista em que o Aggregate seja
@@ -136,7 +136,7 @@ namespace LINQ.LINQ_Lambda
              * você tem uma chave (Categoria) e os valores relacionados a ela (Produtos que foram agrupados por
              * esta categoria)
              */
-            var r16 = products.GroupBy(p => p.Category).OrderBy(p => p.Key.Tier);
+            var r16 = products.GroupBy(p => p.CategoryId).OrderBy(p => p.Key.Tier).ToList();
 
             /*
              * Portanto para varrer todos os elementos e exibí-los de acordo, deve-se realizar dois foreach:
@@ -146,10 +146,10 @@ namespace LINQ.LINQ_Lambda
              * O segundo foreach será para exibir cada objeto ou valor presente nesse agrupamento
              */
             Print("Teste", r16);
-            foreach (IGrouping<Category, Product> group in r16)
+            foreach (IGrouping<CategoryOld, ProductOld> group in r16)
             {
                 Console.WriteLine("Category " + group.Key.Name + ":");
-                foreach (Product p in group)
+                foreach (ProductOld p in group)
                 {
                     Console.WriteLine(p);
                 }
