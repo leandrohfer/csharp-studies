@@ -13,7 +13,7 @@ namespace LINQ.LINQ_Similar_SQL
             }
             Console.WriteLine();
         }
-        static void Main(String[] args)
+        static void Teste3(String[] args)
         {
             Category c1 = new Category() { Id = 1, Name = "Tools", Tier = 2 };
             Category c2 = new Category() { Id = 2, Name = "Computers", Tier = 1 };
