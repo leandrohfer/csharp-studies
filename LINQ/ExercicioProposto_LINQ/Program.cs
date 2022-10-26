@@ -10,7 +10,7 @@ namespace LINQ.ExercicioProposto_LINQ
 {
     internal class Program
     {
-        static void Main(String[] args)
+        static void Teste5(String[] args)
         {
             Console.Write("Enter full file path: ");
             string path = Console.ReadLine();
